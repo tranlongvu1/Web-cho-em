@@ -353,3 +353,54 @@ body:not(.portrait) #container canvas {
     background: rgba(0, 0, 0, 0.75);
     transform: scale(1.05);
 }
+#rotate-warning {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: #050510;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+}
+
+#rotate-warning .rotate-icon {
+    font-size: 70px;
+    margin-bottom: 20px;
+    animation: rotatePhone 1.5s ease-in-out infinite;
+}
+
+#rotate-warning h2 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+#rotate-warning p {
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+@keyframes rotatePhone {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(90deg);
+    }
+}
+
+@media screen and (max-width: 900px) and (orientation: portrait) {
+    #rotate-warning {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 900px) and (orientation: landscape) {
+    #rotate-warning {
+        display: none;
+    }
+}
